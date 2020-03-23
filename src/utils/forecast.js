@@ -13,9 +13,11 @@ const forecast = (lat, long, callback)=>{
        callback(body.error,undefined)
     }
     else {
-        callback(undefined,
-            body.daily.data[0].summary + "The temp is " + body.currently.temperature + " degree with a chance of " + body.currently.precipProbability + "% rain.")
-
+        callback(undefined,{
+            temperature: body.currently.temperature,
+            forecastData:  body.daily.data[0].summary + "The temperature is " + body.currently.temperature + " degree with a chance of " + body.currently.precipProbability + "% rain."
+        })
+           
     }
     })
 }
