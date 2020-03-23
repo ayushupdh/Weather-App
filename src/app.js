@@ -6,7 +6,7 @@ const forecast = require('./utils/forecast')
 
 
 const app = express()
-
+const port  = process.env.PORT || 3000
 //Define paths for express configs
 const publicDirPath = path.join(__dirname,"../public")
 const viewsPath = path.join(__dirname,'../template/views')
@@ -30,7 +30,7 @@ app.get('', (req, res)=>{
 app.get('/help', (req, res)=>{
     res.render('help', {
         title:'Help Page',
-        helpfulText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        helpfulText:'This is some helpful text',
         name:'Ayush'
     })
 })
@@ -65,6 +65,13 @@ app.get('/weather', (req, res)=>{
         })
         
     })
+    
+
+    // res.send({
+    //     location: 'Philadelphia',
+    //     forecast: 'Light rain',
+    //     address:req.query.address
+    // })
 })  
 
 app.get('/product', (req,res)=>{
@@ -98,7 +105,7 @@ app.get("*", (req,res)=>{
 })
 
 
-app.listen(3000, ()=>{
-    console.log("Server is working on port 3000");
+app.listen(port, ()=>{
+    console.log("Server is working on port "+port);
     
 })

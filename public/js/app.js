@@ -15,7 +15,7 @@ weatherForm.addEventListener("submit", (e) => {
     message1.textContent= 'Loading Forecast...'
     message2.textContent=''
     //Fetch the location and forecast from the url
-    fetch('http://localhost:3000/weather?address='+encodeURIComponent(address)).then((response) => {
+    fetch('/weather?address='+encodeURIComponent(address)).then((response) => {
 
         response.json().then((data) => {
             if (data.error) {
