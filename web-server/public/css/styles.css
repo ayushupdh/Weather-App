@@ -40,7 +40,18 @@ header a:hover{
     color: red;
 }
 
+form input{
+    padding:5px;
+    border-radius: 5px;
+}
 
+form button {
+    width: 75px;
+    background-color: black;
+    color:wheat;
+    padding: 5px;
+    border-radius: 5px;
+}
 
 .portrait{
     width: 250px;

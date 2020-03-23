@@ -10,7 +10,7 @@ const geocode = (address, callback)=>{
         if(error){
             callback("app stopped working", undefined)
         }else if(body.features.length ===0){
-                console.log("Unable to find any matching location.")
+                callback("Unable to find any matching location.",undefined)
         }else{
             callback(undefined, {
                 latitude: body.features[0].center[1],
